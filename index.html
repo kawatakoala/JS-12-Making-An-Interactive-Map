@@ -5,12 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map</title>
-    <script src="app.js" defer></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <script src="app2.js" defer></script>
+
+    <title>Making a Interactive Map</title>
     <style>
         #map {
-            height: 600px;
-            background-color: gray;
+            height: 700px;
+        }
+
+        #map::before {
+            content: 'Loading';
+            font-size: 5em;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            margin-top: 5 em;
+        }
+
+        .leaflet-popup-content-wrapper {
+            width: 100%;
         }
     </style>
 </head>
@@ -18,13 +38,13 @@
 <body>
     <form>
         <label>Select Type</label>
-        <select id="businessType">
+        <select id="business">
             <option value="coffee">Coffee</option>
             <option value="restaurant">Restaurant</option>
             <option value="hotel">Hotel</option>
             <option value="market">Market</option>
         </select>
-        <button type=button>Search</button>
+        <button id="submit">Search</button>
     </form>
     <div id="map"></div>
 </body>
